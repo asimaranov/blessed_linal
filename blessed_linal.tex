@@ -1,0 +1,101 @@
+\documentclass[l1pt]{article}
+\usepackage[top=0.5in, bottom=1.1in, right=0.8in]{geometry}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[english, russian]{babel}
+
+\usepackage{amsmath}
+\usepackage{sectsty}
+\usepackage{amssymb}
+\usepackage{lipsum}
+\usepackage{amsfonts} 
+\usepackage{enumitem}
+\usepackage{ragged2e}
+\usepackage{ntheorem}
+
+\newtheorem{theorem}{Теорема}
+\allsectionsfont{\centering}
+
+\newenvironment{proof}{\paragraph{Доказательство:}}{\hfill\newline}
+
+
+\begin{document}
+\section*{Лекция 1}
+\date{May 2017}
+\subsection*{Тема: Линейное подпространтсво}
+\begin{flushleft}
+Пусть $\underline{V,  \mathbb{P}}$ - некоторое линейное пространство над полем $\mathbb{P}$
+
+Тогда в нем выполняются законы композиции:
+$\forall a, b \in V, \quad \forall \alpha \in \mathbb{P}$
+\begin{enumerate}
+ \item $a + b \in V \quad V \times V \rightarrow V$
+ \item $\alpha * a \in V \quad \mathbb{P} \times V \rightarrow V$
+\end{enumerate}
+
+
+Линейные пространства $\underline{\mathbb{C}, \mathbb{C}}$ и $\underline{\mathbb{C}, \mathbb{R}}$ отличаются размерностью\newline
+
+Пусть $b, a_1, ... , a_n \in V$, $\alpha_1, ... , \alpha_n \in \mathbb{P}$, где и b = $\alpha_1 a_1$ + $\alpha_2 a_2$ + ... + $\alpha_2 a_2$
+Тогда вектор b называется линейной комбинацией векторов $a_1, ... , a_n$\newline
+
+Линейная комбинация называется нетривиальной, если хотя бы один коэффициент не равен нулю
+
+Линейная оболочка векторов $a_1, ... , a_n \in V$ - множество всевозможных линейных комбинаций этих веторов. Обозначается как $L(a_1, ... , a_n)$
+
+Линейное пространство $W \neq \varnothing$ называется линейным подпространством пространства V, если
+\begin{itemize}
+ \item $W \subset V$
+ \item оно само является линейным пространством относительно операций композиции из V 
+\end{itemize}
+
+Вектора $a_1, ... , a_n \in V$ называют линейно зависимыми, если существует их нетривиальная линейная комбинация, равная нулевому вектору\newline
+
+Линейное пространство называется бесконечномерным, если $\forall n \in \mathbb{N}$ найдется набор из n линейнонезависимых векторов. 
+Примеры:
+\begin{itemize}
+ \item Множество функций, непрерывных на некотором промежутке
+ \item Множество всех многочленов 
+\end{itemize}
+
+Рассмотрим линейное пространство многочленов $\underline{\mathbb{M_n}, \mathbb{R}}$ *Народ, а что Панф с ним сделал в итоге, используя факт непредставимости трансцендентных чисел в виде корня полинома? Я забыл*
+
+Пусть есть такое натуральное число m, что любые m + 1 векторов из V линейно зависимы. Очевидно, что любые m+1 векторов также линейно зависимы. Мы можем взять минимальное число из всех m (т.к ограниченное  снизу подмножество натуральных чисел имеет минимум). Назовем его n. Это число- dim V. Взяв n линейно независимых векторов, мы получаем базис V $e_1, ... , e_n \in V$
+
+Базисные вектора 
+\begin{itemize}
+ \item Линейно независимы
+ \item Упорядоченные *Я забыл, для чего оно требуется, Панф про это отдельно говорил*
+ \item $\forall a \in V \quad e_1, ... , e_n, a$ линейно зависимы
+\end{itemize}
+
+$V = L(e_1, e_2, ..., e_n)$ по свойствам базисных векторов (любой вектор выражается из базисных)
+\end{flushleft}
+
+
+\begin{theorem}
+    Пусть есть $\underline{V, \mathbb{P}} (конечномерное)$, W- подпространство. Тогда $dim W \leqslant dim V$
+\end{theorem}
+\begin{proof}
+    Очевидно, ибо базисные вектора в W так же будут базисными векторами в V
+\end{proof}
+
+\begin{theorem}
+    Пусть есть $\underline{V, \mathbb{P}} (конечномерное)$, W- подпространство. $dim W = dim V \iff W = V$
+\end{theorem}
+\begin{proof}
+    Базисные вектора V будут так же базисными векторами в V, и наоборот. Значит, они совпадают. Если определить V и W как линейные оболочки этих векторов, их равенство очевидно
+\end{proof}
+
+\begin{theorem}
+    Пусть есть $\underline{V, \mathbb{P}} (конечномерное)$. Тогда набор векторов  $e_1, ... , e_k$ либо базис, либо существует набор векторов $e_{k + 1}, ... , e_n$ такой, что $e_1, ... , e_k, e_{k+1}, ... , e_n$ - базис
+\end{theorem}
+\begin{proof}
+    Есть два случая 
+    \begin{itemize}
+        \item $L(e_1, ... , e_k) = V$. Тогда $(e_1, ... , e_k)$ - базис
+        \item $\exists e_{k+1} \in V \setminus L(e_1, ... , e_k)$ . В таком случае мы последовательно `добираем` вектора до базиса
+\end{itemize}
+\end{proof}
+
+\end{document}
